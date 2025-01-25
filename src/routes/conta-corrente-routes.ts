@@ -1,5 +1,5 @@
+import express, { Request, Response } from "express";
 import ContaCorrente from "../classes/conta-corrente";
-import express 
 
 const router = express.Router();
 
@@ -8,26 +8,37 @@ const contas: ContaCorrente[] = [
     1234,
     1,
     "João Otavio",
-    "111222333444"
-  )
+    "1112223334",
+    new Date("1999-01-01"),
+    new Date("2000-12-12")
+  ),
 ];
 
-console.log
+console.log(contas[0]);
 
-import express from "express";
+// GET /:id -> Retornar a conta corrente pelo id
+router.get("/:id", (req: Request, res: Response) => {
+  const { id } = req.params;
 
-const ContaCorrenteRoutes = express.Router();
+  if (!id) {
+    res.status(400).send({ error: "Id da conta inválido" });
+    return;
+  }
 
-// GET /: id -> Retornar a conta corrente pelo id
-router.get ("/id", (req: Request, res: Response) => {
-  const {id} = req.params;
-})
-// GET /: agencia/: numero
+  const conta = contas.find((c) => c.id === id);
+  if (!conta) {
+    res.status(404).send({ error: "Conta não encontrada" });
+    return;
+  }
+  res.send(conta);
+});
 
-// GET /: agencia/: numero/saldo
+// GET /:agencia/:numero
 
-// POST / 
+// GET /:agencia/:numero/saldo
 
-// PATCH / saldo
+// POST /
 
-// DELETE / 
+// PATCH /saldo
+
+// DELETE /

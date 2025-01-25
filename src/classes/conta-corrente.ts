@@ -2,7 +2,6 @@ import crypto from "node:crypto";
 
 export default class ContaCorrente {
   private _id: string;
-
   private _agencia: number;
   private _numero: number;
   private _nomeCliente: string;
@@ -29,10 +28,10 @@ export default class ContaCorrente {
     this._saldo = 0;
   }
 
-  public get id(): string {
+  public get id() {
     return this._id;
   }
-
+  
   public get agencia() {
     return this._agencia;
   }
