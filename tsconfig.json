@@ -4,9 +4,9 @@
     "module": "commonjs",
     "rootDir": "./src",
     "outDir": "./dist",
-    "esModuleInterop": false,
-    "forceConsistentCasingInFileNames": false,
-    "strict": false ,
-    "skipLibCheck": false
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true ,
+    "skipLibCheck": true
   }
 }
